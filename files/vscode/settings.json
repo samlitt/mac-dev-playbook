@@ -1,0 +1,64 @@
+{
+    "python.pythonPath": "/usr/local/bin/python3",
+    "window.zoomLevel": 2,
+    "python.autoComplete.extraPaths": [
+        "~/.venv/lib/python3.8/site-packages/ev3dev2",
+    ],
+    "particle.disableWelcomeScreen": true,
+    "update.showReleaseNotes": false,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "editor.accessibilitySupport": "off",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "python.analysis.extraPaths": [
+        "~/.venv/lib/python3.8/site-packages/ev3dev2"
+    ],
+    "editor.fontFamily": "'Comic Code Ligatures', 'Operator Mono', Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.cursorBlinking": "expand",
+    "editor.minimap.enabled": false,
+    "editor.fontWeight": null,
+
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before":["<leader>", "d"],
+            "after": ["d", "d"] 
+        },
+        {
+            "before":["<C-n>"],
+            "commands": [":nohl"] 
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.customGlyphs": false,
+    "terminal.integrated.fontFamily": "ComicCodeLigatures Nerd Font",
+    "workbench.iconTheme": "a-file-icon-vscode",
+    "terminal.integrated.lineHeight": 1.3,
+    "workbench.colorTheme": "Ayu Light Bordered"
+}

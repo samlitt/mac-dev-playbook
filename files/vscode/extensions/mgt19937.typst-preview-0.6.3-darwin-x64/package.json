@@ -1,0 +1,147 @@
+{
+	"name": "typst-preview",
+	"displayName": "Typst Preview",
+	"description": "preview your typst document in instant",
+	"publisher": "mgt19937",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Enter-tainer/typst-preview-vscode"
+	},
+	"version": "0.6.3",
+	"engines": {
+		"vscode": "^1.77.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"languages": [
+		{
+			"id": "typst",
+			"extensions": [
+				".typ"
+			]
+		}
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "typst-preview.preview",
+				"title": "Typst Preview: Preview current file",
+				"description": "Launch typst-ws server",
+				"icon": "$(open-preview)"
+			},
+			{
+				"command": "typst-preview.browser",
+				"title": "Typst Preview: Preview current file in browser",
+				"description": "Launch typst-ws server and open the preview in your browser",
+				"icon": "$(open-preview)"
+			},
+			{
+				"command": "typst-preview.sync",
+				"title": "Typst Preview: Sync preview with current cursor",
+				"icon": "$(sync)"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "typst-preview.preview",
+					"when": "resourceLangId == typst",
+					"group": "navigation"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Typst Preview",
+			"properties": {
+				"typst-preview.executable": {
+					"type": "string",
+					"default": "",
+					"description": "Path to typst-ws executable. If not set, the extension will use bundled typst-ws. If bundled binary is not found, it will use typst-ws installed in PATH"
+				},
+				"typst-preview.fontPaths": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"title": "Font path",
+						"description": "Absolute path to a directory or file containing font assets."
+					},
+					"default": [],
+					"description": "List of *additional* paths to font assets used by typst-ws."
+				},
+				"typst-preview.refresh": {
+					"title": "Refresh preview",
+					"description": "Refresh preview when the document is saved or when the document is changed",
+					"type": "string",
+					"enum": [
+						"onSave",
+						"onType"
+					],
+					"default": "onType",
+					"enumDescriptions": [
+						"Refresh preview on save",
+						"Refresh preview on type"
+					]
+				},
+				"typst-preview.scrollSync": {
+					"description": "Configure scroll sync mode.",
+					"type": "string",
+					"enum": [
+						"never",
+						"onSelectionChange"
+					],
+					"default": "onSelectionChange",
+					"enumDescriptions": [
+						"Scroll preview to current cursor position when selection changes"
+					]
+				}
+			}
+		}
+	},
+	"scripts": {
+		"build:frontend": "cd ../frontend && yarn run build && cd ../vscode && rimraf ./out/frontend/ && cpr ../frontend/dist/ ./out/frontend/",
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./ && yarn run build:frontend",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"package": "vsce package",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/cross-spawn": "^6.0.2",
+		"@types/glob": "^8.1.0",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.77.0",
+		"@types/ws": "^8.5.5",
+		"@typescript-eslint/eslint-plugin": "^5.56.0",
+		"@typescript-eslint/parser": "^5.56.0",
+		"@vscode/test-electron": "^2.3.0",
+		"@vscode/vsce": "^2.19.0",
+		"eslint": "^8.36.0",
+		"glob": "^8.1.0",
+		"mocha": "^10.2.0",
+		"rimraf": "^5.0.1",
+		"typescript": "^5.0.2"
+	},
+	"dependencies": {
+		"cpr": "^3.0.1",
+		"cross-spawn": "^7.0.3",
+		"ws": "^8.13.0"
+	},
+	"__metadata": {
+		"id": "245b098e-55b1-4486-9629-76248ff85055",
+		"publisherId": "0425778a-b50b-43de-859f-d7d90d1abfdb",
+		"publisherDisplayName": "mgt19937",
+		"targetPlatform": "darwin-x64",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1690881774877,
+		"preRelease": false
+	}
+}

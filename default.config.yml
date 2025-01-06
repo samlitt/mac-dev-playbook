@@ -2,7 +2,7 @@
 downloads: ~/.ansible-downloads/
 
 configure_dotfiles: true
-configure_terminal: true
+configure_terminal: false
 configure_osx: true
 configure_sublime: false
 
@@ -20,6 +20,7 @@ dockitems_remove:
   - Photos
   - FaceTime
   - Reminders
+  - Freeform
   - Music
   - News
   - Keynote
@@ -57,9 +58,9 @@ dockitems_persist:
   - name: "Todoist"
     path: "/Applications/Todoist.app/"
     pos: 12
-  - name: "NotePlan"
-    path: "/Applications/Setapp/NotePlan.app"
-    pos: 13
+  # - name: "NotePlan"
+  #   path: "/Applications/Setapp/NotePlan.app"
+  #   pos: 13
   - name: "Fantastical"
     path: "/Applications/Fantastical.app/"
     pos: 14
@@ -69,22 +70,25 @@ dockitems_persist:
   - name: "iTerm"
     path: "/Applications/iTerm.app/"
     pos: 16
-  - name: "Systemeinstellungen"
-    path: "/Applications/System Preferences.app/"
+  - name: "Sytem Settings"
+    path: "/Applications/System Settings.app/"
     pos: 17
 
 configure_sudoers: false
-sudoers_custom_config: ''
+sudoers_custom_config: ""
 # Example:
 # sudoers_custom_config: |
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
 dotfiles_repo: https://github.com/samlitt/dotfiles.git
+dotfiles_repo_version: main
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Development/GitHub/personal/dotfiles
+dotfiles_home: "~"
 dotfiles_files:
   - .zshrc
+  - .spaceshiprc.zsh
   - .gitconfig
   - .gitignore
   - .osx
@@ -94,11 +98,7 @@ homebrew_installed_packages:
   - autoconf
   - bash-completion
   - spaceship
-  - 1password-cli
-  - alt-tab
   - actionlint
-  - duplicati
-  - espanso
   - dockutil
   - borgbackup
   - borgmatic
@@ -109,7 +109,7 @@ homebrew_installed_packages:
   - gettext
   - mas
   - git
-  - github/gh/gh
+  - git-lfs
   - go
   - glow
   - gpg
@@ -135,8 +135,6 @@ homebrew_installed_packages:
   - wget
   - youtube-dl
   - r
-  - raspberry-pi-imager
-  - raycast
   - zsh-async
   - zsh-autosuggestions
   - zsh-completions
@@ -146,74 +144,64 @@ homebrew_installed_packages:
 homebrew_taps:
   - 1password/tap
   - espanso/espanso
-  - harelba/q
-  - homebrew/core
-  - homebrew/cask
   - homebrew/bundle
   - mongodb/brew
   - teamookla/speedtest
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - iterm2
+  - ghostty
   - 1password
-  - nextcloud
+  - 1password-cli
+  - alt-tab
+  - fork
+  - duplicati
+  - kopiaui
+  - espanso
   - obsidian
-  - chromedriver
-  - discord
+  - signal
   - docker
   - firefox
-  - flutter
   - google-chrome
-  - handbrake
-  - setapp
-  - sequel-ace
   - todoist
   - transmit
-  - teamspeak-client
   - nova
   - netnewswire
-  - unity-hub
-  - rider
   - spotify
   - lunar
   - little-snitch
-  - transmission
   - wireshark
-  - figma
-  - blender
   - affinity-photo
   - affinity-designer
   - affinity-publisher
   - iina
   - intellij-idea
   - optimage
-  - imazing
+  - raycast
   - sdformatter
   - firefly
-  - ledger-live
   - raspberry-pi-imager
   - viscosity
   - visual-studio-code
-  - whatsapp
+  - beeper
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
-  - { id: 1569813296, name: "1Password for Safari"}
-  - { id: 948660805, name: "AusweisApp2"}
+  - { id: 1569813296, name: "1Password for Safari" }
+  - { id: 948660805, name: "AusweisApp2" }
   - { id: 441258766, name: "Magnet" }
-  - { id: 430255202, name: "Mactracker"}
-  - { id: 747648890, name: "Telegram"}
+  - { id: 430255202, name: "Mactracker" }
   - { id: 425424353, name: "The Unarchiver" }
   - { id: 411643860, name: "DaisyDisk" }
   - { id: 975937182, name: "Fantastical" }
-  - { id: 1091189122, name: "Bear"}
+  - { id: 1091189122, name: "Bear" }
   - { id: 1000808993, name: "Coca" }
-  - { id: 1179623856, name: "Pastebot"}
-  - { id: 1111447047, name: "Habitify"}
-  - { id: 1484348796, name: "Endel"}
-  - { id: 1444383602, name: "GoodNotes"}
-  - { id: 1544743900, name: "Hush"}
-  - { id: 1437226581, name: "Horo"}
+  - { id: 1179623856, name: "Pastebot" }
+  - { id: 1484348796, name: "Endel" }
+  - { id: 1444383602, name: "GoodNotes" }
+  - { id: 1544743900, name: "Hush" }
+  - { id: 1437226581, name: "Horo" }
 mas_email: ""
 mas_password: ""
 
